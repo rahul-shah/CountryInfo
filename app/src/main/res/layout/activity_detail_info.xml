@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/main.appbar"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/main_collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary">
+            <ImageView
+                android:id="@+id/country_flag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                android:transitionName="poster"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/main_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_protection_scrim_height"
+                android:layout_gravity="bottom"
+                android:layout_alignBottom="@+id/main_backdrop"
+                android:id="@+id/view" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <android.support.v7.widget.GridLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            app:useDefaultMargins="true"
+            android:layout_height="match_parent"
+            app:columnCount="2">
+            <TextView
+                app:layout_column="0"
+                app:layout_row="0"
+                android:text="CAPITAL"
+                style="@style/left_column_bold" />
+            <TextView
+                style="@style/right_column_normal"
+                app:layout_column="1"
+                app:layout_row="0"
+                android:id="@+id/capital_title" />
+            <TextView
+                style="@style/left_column_bold"
+                app:layout_column="0"
+                app:layout_row="1"
+                android:text="REGION" />
+            <TextView
+                style="@style/right_column_normal"
+                app:layout_column="1"
+                app:layout_row="1"
+                android:id="@+id/region_title" />
+            <TextView
+                style="@style/left_column_bold"
+                android:text="AREA"
+                app:layout_column="0"
+                app:layout_row="2" />
+            <TextView
+                style="@style/right_column_normal"
+                app:layout_column="1"
+                app:layout_row="2"
+                android:id="@+id/area_title" />
+        </android.support.v7.widget.GridLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
